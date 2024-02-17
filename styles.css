@@ -1,0 +1,143 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Viewport Height */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #555;
+}
+
+.content-section {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.content {
+    flex: 1; /* This will make the content expand to fill available space, pushing the footer down */
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+}
+
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-content {
+    margin: auto;
+    max-width: 1200px; /* Modify accordingly based on content width */
+}
+
+
+.info-block {
+    background-color: #fff; /* White background for information blocks */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add slight shadow for depth */
+    margin-bottom: 20px; /* Add space between the blocks */
+    padding: 20px;
+    border-radius: 4px; /* Rounded corners for the blocks */
+}
+
+.info-block h3 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px; /* Space between the heading and paragraph */
+}
+
+.info-block p,li {
+    margin: 0;
+    color: #666;
+}
+
+.logo{
+    width:max-content;
+}
+.logo .letter {
+  position: relative;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  
+  will-change: clip-path;
+}
+
+.logo .letter.I {
+  left: 30px;
+  animation-delay: 0.5s;
+  animation: slide-in-out 3s ease-in-out infinite alternate;
+}
+
+.logo .letter.S {
+  left: 86px;
+  animation-delay: 0.5s;
+  animation: slide-out-in 3s ease-in-out infinite alternate;
+}
+
+@keyframes slide-in-out {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes slide-out-in {
+    0% {
+      clip-path: inset(0 0 0 100%);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+.logo:hover .letter.I {
+  color: #e94560;
+}
+
+.logo:hover .letter.S {
+  color: #0f3460;
+}

@@ -1,0 +1,210 @@
+.kartinka {
+    position: relative;
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+
+}
+
+.light {
+    top: 50%;
+    position: absolute;
+
+    left: 50%;
+    width: 1px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.0);
+    border-radius: 50%;
+    /* Makes the div round */
+    box-shadow: 0 0 100px 100px rgba(255, 255, 255, 0.5);
+    /* Adds a glow */
+}
+
+.mountains-1 {
+    position: absolute;
+    bottom: 10%;
+    width: 0;
+    left: 5%;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 40px solid #2cba2c;
+}
+
+.mountains-2 {
+    position: absolute;
+    bottom: 10%;
+    width: 0;
+    left: 25%;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 40px solid #2cba2c;
+}
+
+.mountains-3 {
+    position: absolute;
+    bottom: 10%;
+    left: 45%;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 40px solid #2cba2c;
+}
+
+.mountains-4 {
+    position: absolute;
+    bottom: 10%;
+    width: 0;
+    left: 65%;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 40px solid #2cba2c;
+}
+
+.bolshoiy-grib {
+    position: absolute;
+    bottom: 15%;
+    width: 30px;
+    left: 20%;
+    height: 80px;
+
+    background-color: aliceblue;
+    border: 6px solid #653203;
+    border-radius: 50%;
+}
+
+.shlaypa-bolshovo-griba {
+    position: absolute;
+    bottom: 70%;
+    width: 80px;
+    left: -80%;
+    height: 40px;
+    background-color: #653203;
+    border-radius: 100% 100% 0% 0%;
+    border-radius: 40px 40px 0 0;
+}
+
+.griblight {
+    top: 40%;
+    position: absolute;
+    left: 60%;
+    width: 1px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.0);
+    border-color: white;
+    border-radius: 50%;
+    /* Makes the div round */
+    box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.8);
+    /* Adds a glow */
+    overflow:unset;
+}
+
+.grib-pomenbshe{
+    position: absolute;
+    bottom: 10%;
+    width: 25px;
+    left: 40%;
+    height: 70px;
+    transform: rotate(45deg);
+    background-color: aliceblue;
+    border: 5px solid #653203;
+    border-radius: 50%;
+}
+.shlaypa-griba-pomenbshe{
+    position: absolute;
+    bottom: 70%;
+    width: 60px;
+    left: -80%;
+    height: 30px;
+    background-color: #653203;
+    border-radius: 100% 100% 0% 0%;
+    border-radius: 25px 25px 0 0;
+}
+
+.golova{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    top: 40%;
+    left:50%;
+    background-color: yellow;
+}
+.glaz1{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    top: 50%;
+    left:50%;
+    background-color: black;
+}
+.glaz2{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    top: 10%;
+    left:20%;
+    background-color: black;
+}
+.telo{
+    position: absolute;
+    width: 15px;
+    height: 35px;
+    border-radius: 100%;
+    top: 28%;
+    left:57%;
+    background-color: yellow;
+    transform: rotate(45deg);
+}
+
+.krilo1{
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    border-radius: 100%;
+    top: 23%;
+    left:57%;
+    background-color: lightcyan;
+    transform: rotate(-10deg);
+    border: blue solid 1px;
+}
+.krilo2{
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    border-radius: 100%;
+    top: 25%;
+    left:54%;
+    background-color: lightcyan;
+    transform: rotate(-40deg);
+    border: blue solid 1px;
+}
+
+.krilo3{
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    border-radius: 100%;
+    top: 38%;
+    left:61%;
+    background-color: lightcyan;
+    transform: rotate(170deg);
+    border: blue solid 1px;
+}
+
+.krilo4{
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    border-radius: 100%;
+    top: 35%;
+    left:65%;
+    background-color: lightcyan;
+    transform: rotate(140deg);
+    border: blue solid 1px;
+}

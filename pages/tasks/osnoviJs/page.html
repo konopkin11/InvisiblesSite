@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Задание 3 | Evgeniy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../../styles.css">
+    <script>
+        function calculateFormulas() {
+            const numberOfFormulas = document.getElementById('numberOfFormulas').value;
+            const x = parseFloat(prompt('Введите значение x:'));
+            const y = parseFloat(prompt('Введите значение y:'));
+
+            if (isNaN(x) || isNaN(y)) {
+                alert('Введите кооректные значение х и у.');
+                return;
+            }
+            // Use an IIFE (Immediately Invoked Function Expression) to create a closure around the loop variables
+            (function processFormula(i) {
+                if (i <= numberOfFormulas) {
+                    setTimeout(() => {
+                        const result = calculateFormula(i, x, y);
+                        displayResult(i, result);
+
+                        if (confirm('Продолжаем?')) {
+
+                            processFormula(i + 1);
+                        }
+                    }, 0);
+                }
+            })(1);
+        }
+
+        function displayResult(formulaNumber, result) {
+            
+            const resultsContainer = document.getElementById('resultsContainer');
+        
+            const formulaText = formulaNumber === 1 ? "x * y =" : formulaNumber === 2 ? "x + y =" : "x^2 * y^2 =";
+            const imagePath = result > 100 ? '../../../assets/smile.jpeg' : '../../../assets/not-smile.png';
+            resultsContainer.innerHTML += `
+                <p>
+                    Результат формулы ${formulaText} ${result}
+                    <img class="result-image" src="${imagePath}" alt="${result > 100 ? 'Smile' : 'Not smile'}" />
+                </p>`;
+
+        }
+
+
+
+
+        function calculateFormula(formulaNumber, x, y) {
+            switch (formulaNumber) {
+                case 1: {
+                    return x * y;
+                }
+                case 2: {
+                    return x + y;
+                }
+                case 3: {
+                    return x ^ 2 * y ^ 2
+                }
+                default: {
+                    return x + y;
+                }
+            }
+            return x * y;
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <header>
+
+        <div class="logo">
+            <span class="letter I">Invisibles</span>
+            <span class="letter S">studio</span>
+        </div>
+
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../../../index.html">Главная</a></li>
+                <li><a href="../../../pages/contacts.html">Обо мне</a></li>
+                <li><a href="#section4">Курсовая работа</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="content">
+        <div class="info-block">
+            <h1>Formula Calculator</h1>
+            <label for="numberOfFormulas">Количество формул (1-3):</label>
+            <input type="number" id="numberOfFormulas" min="1" max="3" value="1">
+            <button onclick="calculateFormulas()">Выбрать</button>
+            <div id="resultsContainer"></div>
+
+        </div>
+    </main>
+
+
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Конопкин Евгений. All rights reserved.</p>
+            <p>Contact: <a href="mailto:konopkin.ei@edu.spbstu.ru">konopkin.ei@edu.spbstu.ru</a></p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
