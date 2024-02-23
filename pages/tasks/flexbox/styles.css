@@ -1,4 +1,7 @@
-
+.obj{
+  width: 100%;
+  flex:1;
+}
 .container-flex {
     background-color: gainsboro;
     width: 200px;
@@ -6,7 +9,8 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    display: inline-grid;
+    
     cursor: pointer;
     transition: width 1s ease-in-out, height 1s ease-in-out;
 }
