@@ -65,7 +65,7 @@
     padding: 10px;
     border: 1px solid #ddd;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 5s;
     position: relative;
 }
 

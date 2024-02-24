@@ -121,7 +121,7 @@ const questions = [
         block.appendChild(tickMark);
       } else {
         setTimeout(() => {
-          block.style.transition = "transform 5s";
+          block.style.transition = "transform 10s";
           block.style.transform = "translateX(20000%)";
         }, 1000);
       }

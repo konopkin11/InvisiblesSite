@@ -54,6 +54,7 @@ footer {
     color: white;
     text-align: center;
     padding: 5px 10px;
+   
 }
 
 
@@ -69,6 +70,7 @@ footer a:hover {
 .footer-content {
     margin: auto;
     max-width: 1200px; /* Modify accordingly based on content width */
+    
 }
 
 
@@ -140,4 +142,64 @@ footer a:hover {
 
 .logo:hover .letter.S {
   color: #0f3460;
+}
+.myimg{
+  width: 100px;
+  ;
+}
+.h3-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.myimg .logo {
+  float: flex;
+  
+}
+@media only screen and (max-width: 500px) {
+  .h3-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 600px) {
+  header {
+    flex-direction: column;
+    padding: auto;
+  }
+  .nav-links
+   {
+    margin-left: 0;
+    margin-top: 0;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.nav-links li {
+  display: inline;
+  padding-top: 0.5em;
+  margin-left: 0px;
+}
+.logo .letter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 16px;
+  margin: auto;
+  
+}
+.logo .letter.I {
+  left: 0px;
+}
+
+.logo .letter.S {
+  left: 0px
+}
+
 }
