@@ -1,6 +1,8 @@
 .obj{
   width: 100%;
-  flex:1;
+  display: flex;
+    align-content: stretch;
+    justify-content: space-between;
 }
 .container-flex {
     background-color: gainsboro;

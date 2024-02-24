@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
       event.preventDefault();
       const data = event.dataTransfer.getData('text/plain');
       const block = document.getElementById(data);
+
   
       const mouseX = event.clientX;
       const mouseY = event.clientY;
@@ -74,12 +75,13 @@ document.addEventListener('DOMContentLoaded', function () {
       const containerY = containerLeft.top;
   
       const containerUp = leftContainer.getBoundingClientRect();
-      const blockX = mouseX - containerX ;
+      const blockX = mouseX - containerX - 120;
       const blockY = mouseY - containerY + containerUp.height + shift;
   
       block.style.position = 'absolute';
       block.style.left = blockX + 'px';
       block.style.top = blockY + 'px';
+      block.style.backgroundColor = "red";
       document.elementFromPoint(mouseX, mouseY);
       leftContainer.appendChild(block);
   
