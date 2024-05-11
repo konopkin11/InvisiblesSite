@@ -1,0 +1,63 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Viewport Height */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+
+.content-section {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.content {
+    flex: 1; /* This will make the content expand to fill available space, pushing the footer down */
+}
+
+
+a{
+  color: #fff;
+}
+
+.info-block {
+    background-color: #fff; /* White background for information blocks */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add slight shadow for depth */
+    margin-bottom: 20px; /* Add space between the blocks */
+    padding: 20px;
+    border-radius: 4px; /* Rounded corners for the blocks */
+}
+
+
+.falling {
+  position: absolute;
+  animation: fall linear forwards;
+}
+@keyframes fall {
+  0% { top: -50px; }
+  100% { top: 100%; }
+}
+
+
+@media only screen and (max-width: 500px) {
+  
+}
+@media only screen and (max-width: 600px) {
+  
+
+}
