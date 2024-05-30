@@ -41,65 +41,91 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-let letter = "";
-let totalAmount = 0;
-let clickerAmount = 0;
-window.onload = async function () {
-  letter = alphabet.charAt(Math.floor(Math.random() * mySmallAlphabet.length));
-  document.getElementById("gameName").innerHTML = "Нажмите на слова, которые содержат букву " + letter;
-  animals.forEach(animal => {
-    if (animal.name.startsWith(letter)) {
-      totalAmount += 1;
-    }
+let letterRight = "";
+let letterLeft = "";
+let totalAmountLeft = 0;
+let clickerAmountLeft = 0;
+letterLeft = mySmallAlphabet.charAt(Math.floor(Math.random() * mySmallAlphabet.length));
+document.getElementById("gameNameLeft").innerHTML = "Начинаются на букву  " + letterLeft;
+animals.forEach(animal => {
+  if (animal.name.startsWith(letterLeft)) {
+    totalAmountLeft += 1;
+  }
+});
+
+
+let score = 0;
+localStorage.setItem("score", localStorage.getItem("score") || 0);
+
+let index = 0;
+let center = document.getElementById('center');
+let left = document.getElementById('left');
+let img =null;
+function showNextImage() {
+  if (index >= animals.length) return;
+  img = document.createElement('img');
+
+  index += 1;
+  img.src = "../assets/" + animals[index].fileName;
+  img.className = 'draggable';
+
+  console.log(animals[index].fileName)
+  img.style.maxWidth = '150px';
+  img.addEventListener('dragstart', function (event) {
+    event.dataTransfer.setData('text/plain', animals[index].name);
   });
 
+  img.addEventListener('dragend', function (event) {
+    event.preventDefault();
+  });
+  center.appendChild(img);
+  
+}
 
-  let score = 0;
-  localStorage.setItem("score", 0);
-  for (let i = 0; i < animals.length; i++) {
-    let img = document.createElement('img');
-    img.src = "../assets/" + animals[i].fileName;
-    img.className = 'falling';
-    img.style.maxWidth = '150px';
-    img.style.left = Math.random() * window.innerWidth + 'px';
-    img.style.animationDuration = Math.max(2, Math.random() * 5) + 's';
-    //подсказка
-    if(animals[i].name.includes(letter)){
-      img.style.border = '2px solid red';
-    }
-
-    //
-    img.onclick = function () {
-      this.parentNode.removeChild(this);
-      if (animals[i].name.includes(letter)) {
-        score += 20;
-        document.getElementById("score").innerHTML = " Cчет: " + score;
-        clickerAmount += 1;
-        localStorage.setItem("score", score);
-        if (clickerAmount == totalAmount) {
-          alert("Вы выиграли!" + "Cчет: " + score);
-          document.getElementById("score").innerHTML = " Cчет: " + score;
-          window.location.href = "../finalScene/index.html";
-        }
-      } else {
+window.onkeydown = function (event) {
+  if (center.firstChild) {
+    
+   if (event.key === 'ArrowDown') {
+    event.preventDefault();
+      if ( animals[index].name.startsWith(letterLeft)) {
         alert("Вы проиграли. Счет: " + score);
-        window.location.href = "../finalScene/index.html"; //todo отдельная страница финала
-      }
-
-    };
-    img.addEventListener('animationend', () => {
-      if (!animals[i].name.includes(letter)) {
-        img.parentNode.removeChild(img);
-      } else {
-        alert("Вы проиграли. Счет: "+ score);
-        window.location.href = "../finalScene/index.html"; //todo отдельная страница финала
+        window.location.href = "../finalScene/index.html";
 
       }
-
-    });
-    document.body.appendChild(img);
-    //sleep for 2 secs
-    await sleep(1000);
+      center.removeChild(center.firstChild);
+      showNextImage();
+    }
+ 
   }
+};
 
+window.onload = ()=>{
+  showNextImage();
+  let basket = document.getElementById('left');
+  basket.addEventListener('dragover', function (event) {
+    event.preventDefault();
+  });
+
+  basket.addEventListener('drop', function (event) {
+    if (animals[index].name.includes(letterLeft)) {
+      score += 20;
+      document.getElementById("score").innerHTML = " Cчет: " + score;
+      clickerAmountLeft += 1;
+      localStorage.setItem("score", score);
+      if (clickerAmountLeft == totalAmountLeft) {
+        alert("Вы выиграли!" + "Cчет: " + score);
+        document.getElementById("score").innerHTML = " Cчет: " + score;
+        window.location.href = "../finalScene/index.html";
+      }
+    } else {
+      alert("Вы проиграли. Счет: " + score);
+      window.location.href = "../finalScene/index.html"; //todo отдельная страница финала
+    }
+    showNextImage();
+    event.preventDefault();
+    let name = event.dataTransfer.getData('text/plain');
+    left.appendChild(center.firstChild);
+    //img.parentNode.removeChild(img);
+
+  });
 }
