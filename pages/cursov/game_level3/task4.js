@@ -47,10 +47,15 @@ let totalAmountLeft = 0;
 let clickerAmountLeft = 0;
 let starttime = 0;
 let totalTime = 120;
-setInterval(()=>{
+let f = null;
+const func = () => {
+clearInterval(f);
+}
+ f = setInterval(()=>{
   if(starttime>totalTime){
     alert("Вы проиграли. Счет: " + score);
     window.location.href = "../finalScene/index.html";
+    func();
   }else{
     document.getElementById("time").innerHTML = "Время: " + (120-starttime);
     starttime +=1;
