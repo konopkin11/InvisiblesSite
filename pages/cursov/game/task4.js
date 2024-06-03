@@ -61,7 +61,8 @@ window.onload = async function () {
     img.src = "../assets/" + animals[i].fileName;
     img.className = 'falling';
     img.style.maxWidth = '150px';
-    img.style.left = Math.random() * window.innerWidth + 'px';
+    img.style.left = (Math.random() * window.innerWidth -50)+ 'px';
+
     img.style.animationDuration = Math.max(5, Math.random() * 10) + 's';
     //подсказка
     if(animals[i].name.startsWith(letter)){

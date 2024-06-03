@@ -47,6 +47,17 @@ let totalAmountLeft = 0;
 let totalAmountRight = 0;
 let clickerAmountLeft = 0;
 let clickerAmountRight = 0;
+let starttime = 0;
+let totalTime = 120;
+setInterval(()=>{
+  if(starttime>totalTime){
+    alert("Вы проиграли. Счет: " + score);
+    window.location.href = "../finalScene/index.html";
+  }else{
+    document.getElementById("time").innerHTML = "Время: " + (120-starttime);
+    starttime +=1;
+  }
+}, 1000);
 letterRight = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
 letterLeft = mySmallAlphabet.charAt(Math.floor(Math.random() * mySmallAlphabet.length));
 document.getElementById("gameNameLeft").innerHTML = "Начинаются на букву  " + letterLeft;
@@ -90,7 +101,7 @@ window.onkeydown = function (event) {
         document.getElementById("score").innerHTML = " Cчет: " + score;
         clickerAmountLeft += 1;
         localStorage.setItem("score", score);
-        if (clickerAmountLeft == totalAmountLeft && clickerAmountRight == totalAmountRight) {
+        if (clickerAmountLeft === totalAmountLeft && clickerAmountRight === totalAmountRight) {
           alert("Вы выиграли!" + "Cчет: " + score);
           document.getElementById("score").innerHTML = " Cчет: " + score;
           window.location.href = "../game_level3/index.html";
