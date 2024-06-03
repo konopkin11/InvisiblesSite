@@ -50,7 +50,7 @@ a{
   animation: fall linear forwards;
 }
 @keyframes fall {
-  0% { top: -50px; }
+  0% { top: 50px; }
   100% { top: 100%; }
 }
 

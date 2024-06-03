@@ -45,6 +45,17 @@ let letterRight = "";
 let letterLeft = "";
 let totalAmountLeft = 0;
 let clickerAmountLeft = 0;
+let starttime = 0;
+let totalTime = 120;
+setInterval(()=>{
+  if(starttime>totalTime){
+    alert("Вы проиграли. Счет: " + score);
+    window.location.href = "../finalScene/index.html";
+  }else{
+    document.getElementById("time").innerHTML = "Время: " + (120-starttime);
+    starttime +=1;
+  }
+}, 1000);
 letterLeft = mySmallAlphabet.charAt(Math.floor(Math.random() * mySmallAlphabet.length));
 document.getElementById("gameNameLeft").innerHTML = "Начинаются на букву  " + letterLeft;
 animals.forEach(animal => {
