@@ -1,6 +1,8 @@
 const nameForm = document.getElementById('nameForm');
 const nameInput = document.getElementById('nameInput');
 const playButton = document.getElementById('playButton');
+const playButton2 = document.getElementById('playButton2');
+const playButton3 = document.getElementById('playButton3');
 const changeNameButton = document.getElementById('changeNameButton');
 const ratingDisplay = document.getElementById('ratingDisplay');
 let players = {};
@@ -47,6 +49,8 @@ displayPlayers();
 const savedName = localStorage.getItem('user_name');
 if (savedName) {
     playButton.style.display = 'block';
+    playButton2.style.display = 'block';
+    playButton3.style.display = 'block';
     changeNameButton.style.display = 'block';
     nameForm.style.display ='none';
 }else{
@@ -58,19 +62,31 @@ nameForm.addEventListener('submit', function (event) {
     const enteredName = nameInput.value;
     localStorage.setItem('user_name', enteredName);
     playButton.style.display = 'block';
+    playButton2.style.display = 'block';
+    playButton3.style.display = 'block';
     changeNameButton.style.display = 'block';
     nameForm.style.display ='none';
+    localStorage.setItem('score', 0);
 });
 
 playButton.addEventListener('click', function () {
-    localStorage.setItem('score', 0);
+
     window.location.href = "game/index.html";
 });
+playButton2.addEventListener('click', function () {
 
+    window.location.href = "game_level2/index.html";
+});
+playButton3.addEventListener('click', function () {
+
+    window.location.href = "game_level3/index.html";
+});
 changeNameButton.addEventListener('click', function () {
     // Действие при нажатии кнопки "Сменить имя"
     localStorage.removeItem('user_name');
     playButton.style.display = 'none';
+    playButton2.style.display = 'none';
+    playButton3.style.display = 'none';
     changeNameButton.style.display = 'none';
     nameForm.style.display ='block';
 });

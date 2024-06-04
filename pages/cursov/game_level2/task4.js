@@ -49,6 +49,7 @@ let clickerAmountLeft = 0;
 let clickerAmountRight = 0;
 let starttime = 0;
 let totalTime = 120;
+
 setInterval(()=>{
   if(starttime>totalTime){
     alert("Вы проиграли. Счет: " + score);
@@ -58,6 +59,7 @@ setInterval(()=>{
     starttime +=1;
   }
 }, 1000);
+
 letterRight = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
 letterLeft = mySmallAlphabet.charAt(Math.floor(Math.random() * mySmallAlphabet.length));
 document.getElementById("gameNameLeft").innerHTML = "Начинаются на букву  " + letterLeft;
@@ -131,7 +133,7 @@ window.onkeydown = function (event) {
 
       showNextImage();
     } else if (event.key === 'ArrowDown') {
-
+      event.preventDefault();
       if (animals[index].name.includes(letterRight) || animals[index].name.startsWith(letterLeft)) {
         alert("Вы проиграли. Счет: " + score);
         window.location.href = "../finalScene/index.html";

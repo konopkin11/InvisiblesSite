@@ -1,3 +1,5 @@
+
+
 function shuffle(array) {
   let currentIndex = array.length;
 
@@ -25,6 +27,32 @@ const files = [
   "дрозд.jpg", "верблюд.jpg", "водомерка.png",
   "дятел.jpg", "водожук.jpg", "двухвостка.jpg"
 ];
+const actions = {
+  "аист": "летает",
+  "геккон": "ходит",
+  "глухарь": "летает",
+  "бобр": "плавает",
+  "барсук": "ходит",
+  "горилла": "ходит",
+  "акула": "плавает",
+  "гепард": "ходит",
+  "бабочка": "летает",
+  "белка": "ходит",
+  "гиббон": "ходит",
+  "антилопа": "ходит",
+  "вобла": "плавает",
+  "альпака": "ходит",
+  "динозавр": "ходит",
+  "ворон": "летает",
+  "бегемот": "плавает",
+  "анаконда": "ходит",
+  "дрозд": "летает",
+  "верблюд": "ходит",
+  "водомерка": "плавает",
+  "дятел": "летает",
+  "водожук": "плавает",
+  "двухвостка": "ходит"
+};
 
 const animals = files.map(file => {
   let name = file.split(".")[0];
@@ -35,7 +63,7 @@ shuffle(animals);
 
 const alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
 const mySmallAlphabet = "абвгд";
-
+const actionList = ["плавает", "ходит", "летает" ]
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -61,8 +89,9 @@ clearInterval(f);
     starttime +=1;
   }
 }, 1000);
+const currentAction = actionList[Math.floor(Math.random() * actionList.length)]
 letterLeft = mySmallAlphabet.charAt(Math.floor(Math.random() * mySmallAlphabet.length));
-document.getElementById("gameNameLeft").innerHTML = "Начинаются на букву  " + letterLeft;
+document.getElementById("gameNameLeft").innerHTML = "Кто  " + currentAction + "?";
 animals.forEach(animal => {
   if (animal.name.startsWith(letterLeft)) {
     totalAmountLeft += 1;
@@ -95,15 +124,15 @@ function showNextImage() {
     event.preventDefault();
   });
   center.appendChild(img);
-  
+
 }
 
 window.onkeydown = function (event) {
   if (center.firstChild) {
-    
+
    if (event.key === 'ArrowDown') {
     event.preventDefault();
-      if ( animals[index].name.startsWith(letterLeft)) {
+      if ( actions[animals[index].name] === currentAction) {
         alert("Вы проиграли. Счет: " + score);
         window.location.href = "../finalScene/index.html";
 
@@ -111,11 +140,12 @@ window.onkeydown = function (event) {
       center.removeChild(center.firstChild);
       showNextImage();
     }
- 
+
   }
 };
 
 window.onload = ()=>{
+  console.log(actions)
   showNextImage();
   let basket = document.getElementById('left');
   basket.addEventListener('dragover', function (event) {
@@ -123,7 +153,8 @@ window.onload = ()=>{
   });
 
   basket.addEventListener('drop', function (event) {
-    if (animals[index].name.includes(letterLeft)) {
+
+    if (actions[animals[index].name] === currentAction ) {
       score += 20;
       document.getElementById("score").innerHTML = " Cчет: " + score;
       clickerAmountLeft += 1;
@@ -145,3 +176,7 @@ window.onload = ()=>{
 
   });
 }
+
+
+
+
