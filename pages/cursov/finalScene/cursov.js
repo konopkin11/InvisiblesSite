@@ -25,6 +25,8 @@ loadPlayers();
 document.getElementById('title').innerHTML = "Игра окончена. Счет: " + localStorage.getItem('score');
 const savedName = localStorage.getItem('user_name');
 const currentRating = localStorage.getItem('score');
+
 addPlayer(savedName, currentRating);
+localStorage.setItem('score', 0)
 
 
